@@ -20,6 +20,6 @@ for i = 1:size(objectCoords,1)
     
     outVect(cellIndex)=1;
     outVect(cellIndex+c^2) = xCellFract;
-    outVect(cellIndex+2*c^2) = yCellFract;    
+    outVect(cellIndex+2*c^2) = yCellFract;
 end
 

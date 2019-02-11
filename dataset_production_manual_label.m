@@ -4,7 +4,7 @@
 clearvars -except image_temp
 close all
 
-sampleRange = [6];
+sampleRange = [10];
 %choose image size (training image pixel width) such that a maximum of 7 cells
 %will fit in the width. i.e. imageSize < 7 times mean cell spacing in pixels
 %224 is good for dark nuclei smaller cells, 448 is good for larger
@@ -59,9 +59,9 @@ for m = sampleRange
         validcheck = 0;
         while validcheck == 0
             try
-            uinput1 = newid(strcat('Enter stack number z (max= ',num2str(Nz),') or enter 0 to exit stack'));
+                uinput1 = newid(strcat('Enter stack number z (max= ',num2str(Nz),') or enter 0 to exit stack'));
             catch
-            uinput1 = inputdlg(strcat('Enter stack number z (max= ',num2str(Nz),') or enter 0 to exit stack'));
+                uinput1 = inputdlg(strcat('Enter stack number z (max= ',num2str(Nz),') or enter 0 to exit stack'));
             end
             z = str2num(uinput1{1});
             if z >= 0 && z<= Nz
@@ -98,9 +98,9 @@ for m = sampleRange
                     w = waitforbuttonpress;
                     if w == 0
                         try
-                        counter = counter+1;
-                        cells(counter,:) = ginput(1);
-                        h2(counter) = plot(cells(counter,1),cells(counter,2),'r+');
+                            counter = counter+1;
+                            cells(counter,:) = ginput(1);
+                            h2(counter) = plot(cells(counter,1),cells(counter,2),'r+');
                         catch
                             break
                         end
@@ -114,9 +114,9 @@ for m = sampleRange
                 validcheck = 0;
                 while validcheck == 0
                     try
-                    uinput2 = newid('Enter 1 to keep image, 0 to discard');
+                        uinput2 = newid('Enter 1 to keep image, 0 to discard');
                     catch
-                    uinput2 = inputdlg('Enter 1 to keep image, 0 to discard');
+                        uinput2 = inputdlg('Enter 1 to keep image, 0 to discard');
                     end
                     input2 = str2num(uinput2{1});
                     if input2 == 1 || input2 == 0
@@ -172,9 +172,9 @@ for m = sampleRange
                 validcheck = 0;
                 while validcheck == 0
                     try
-                    uinput3 = newid('Enter 1 to continue with this image, 0 move to new image in stack');
+                        uinput3 = newid('Enter 1 to continue with this image, 0 move to new image in stack');
                     catch
-                    uinput3 = inputdlg('Enter 1 to continue with this image, 0 move to new image in stack');
+                        uinput3 = inputdlg('Enter 1 to continue with this image, 0 move to new image in stack');
                     end
                     input3 = str2num(uinput3{1});
                     if input3 == 1 || input3 == 0
